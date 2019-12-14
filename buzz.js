@@ -242,6 +242,16 @@
       });
     }
 
+    set_all_lights(light_on) {
+      var controller, i, len, ref;
+      ref = this.controllers;
+      for (i = 0, len = ref.length; i < len; i++) {
+        controller = ref[i];
+        controller.set_next_light(light_on);
+      }
+      return this.output_next_lights();
+    }
+
     initialize() {
       // TODO There currently seems to be no way to query the initial state: https://github.com/WICG/webhid/issues/10
       this.state = [0, 0, 0, 0, 0];
@@ -278,6 +288,19 @@
       super();
       this.devices = [];
       this.controllers = [];
+      this.set_all_lights = function(light_on) {
+        var device;
+        return Promise.all((function() {
+          var i, len, ref, results;
+          ref = this.devices;
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            device = ref[i];
+            results.push(this.device.set_all_lights(light_on));
+          }
+          return results;
+        }).call(this));
+      };
       this.open_device = () => {
         return ensure_webhid_is_available().then(() => {
           return navigator.hid.requestDevice({

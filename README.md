@@ -60,6 +60,12 @@ Open a buzz [device](#device). A dialogue will appear, asking the user to select
 Whenever a [device](#device) was successfully opened, a `"device_added"` event is being emitted, as well as four `"controller_added"` events, one for each [controller](#controller).
 
 ```
+buzz.set_all_lights(<true or false>)
+```
+
+Set the lights on all [controller](#controller)s of all of [device](#device)s immediately on or off. Returns a Promise that resolves when the lights have been set.
+
+```
 buzz.on("<event_id>", <callback()>)
 ```
 
@@ -88,6 +94,13 @@ device.controllers
 ```
 
 An array containing the four [controller](#controller)s of the [device](#device).
+
+```
+device.set_all_lights(<true or false>)
+```
+
+Set the lights on all [controller](#controller)s of this [device](#device) immediately on or off. Returns a Promise that resolves when the lights have been set.
+
 
 ```
 device.output_next_lights()
