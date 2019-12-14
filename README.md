@@ -135,12 +135,12 @@ controller.button
 
 An object with the properties:
 
-- "blue"
-- "orange"
-- "green"
-- "yellow"
-- "buzzer"
-- "red"
+- `blue`: Reference to [button](#button) 0
+- `orange`: Reference to [button](#button) 1
+- `green`: Reference to [button](#button) 2
+- `yellow`: Reference to [button](#button) 3
+- `buzzer`: Reference to [button](#button) 4
+- `red`: Reference to [button](#button) 4
 
 making the [button](#button)s accessable by a human-readable key instead of a number.
 
