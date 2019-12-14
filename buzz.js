@@ -288,7 +288,7 @@
       super();
       this.devices = [];
       this.controllers = [];
-      this.set_all_lights = function(light_on) {
+      this.set_all_lights = (light_on) => {
         var device;
         return Promise.all((function() {
           var i, len, ref, results;
@@ -297,6 +297,19 @@
           for (i = 0, len = ref.length; i < len; i++) {
             device = ref[i];
             results.push(this.device.set_all_lights(light_on));
+          }
+          return results;
+        }).call(this));
+      };
+      this.output_next_lights = () => {
+        var device;
+        return Promise.all((function() {
+          var i, len, ref, results;
+          ref = this.devices;
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            device = ref[i];
+            results.push(this.device.output_next_lights());
           }
           return results;
         }).call(this));

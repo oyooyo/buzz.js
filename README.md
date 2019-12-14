@@ -66,6 +66,12 @@ buzz.set_all_lights(<true or false>)
 Set the lights on all [controller](#controller)s of all of [device](#device)s immediately on or off. Returns a Promise that resolves when the lights have been set.
 
 ```
+buzz.output_next_lights()
+```
+
+Output the next state of the lights of the controllers of all [device](#device)s. Should be called after calling `controller.set_next_light(<true or false>)` on multiple [controller](#controller)s. Returns a Promise that resolves when the data has been sent.
+
+```
 buzz.on("<event_id>", <callback()>)
 ```
 
@@ -106,7 +112,7 @@ Set the lights on all [controller](#controller)s of this [device](#device) immed
 device.output_next_lights()
 ```
 
-Output the next state of the lights. Should be called after calling `controller.set_next_light(<true or false>)` on multiple [controller](#controller)s. Returns a Promise that resolves when the data has been sent.
+Output the next state of the lights of the controllers of this [device](#device). Should be called after calling `controller.set_next_light(<true or false>)` on multiple [controller](#controller)s. Returns a Promise that resolves when the data has been sent.
 
 ```
 device.on("<event_id>", <callback>)
