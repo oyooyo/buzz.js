@@ -20,7 +20,7 @@ Step 1:
 Include the JavaScript file buzz.js in your HTML code, which will make the global variable `buzz` available.
 
 ```html
-<script src="buzz.js"></script>
+<script src="https://oyooyo.github.io/buzz.js/buzz.min.js"></script>
 ```
 
 Step 2:
