@@ -93,7 +93,7 @@ An array containing the four [controller](#controller)s of the [device](#device)
 device.output_next_lights()
 ```
 
-Output the next state of the lights. Should be called after calling `controller.set_next_light(<true or false>)` on multiple [controller](#controller)s.
+Output the next state of the lights. Should be called after calling `controller.set_next_light(<true or false>)` on multiple [controller](#controller)s. Returns a Promise that resolves when the data has been sent.
 
 ```
 device.on("<event_id>", <callback>)
@@ -148,7 +148,7 @@ making the [button](#button)s accessable by a human-readable key instead of a nu
 controller.set_light(<true or false>)
 ```
 
-Set the light on this [controller](#controller) immediately on or off. Shortcut for `controller.set_light(<true or false>); device.output_next_lights();`
+Set the light on this [controller](#controller) immediately on or off. Shortcut for `controller.set_light(<true or false>); device.output_next_lights();`. Returns a Promise that resolves when the light has been set.
 
 ```
 controller.set_next_light(<true or false>)
